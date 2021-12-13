@@ -8,8 +8,13 @@ export const bowl = (rolls) => {
 
     for (let i = 0; i < frames.length; i++) {
         const currentFrame = frames[i]
-        const scoreForFrame = currentFrame[0] + currentFrame[1]
-    
+        let  scoreForFrame = currentFrame[0] + currentFrame[1]
+
+        if (scoreForFrame === 10) {
+            const nextFrame = frames[i + 1];
+            scoreForFrame += nextFrame[0];
+          }
+          
         total += scoreForFrame;
       }
             

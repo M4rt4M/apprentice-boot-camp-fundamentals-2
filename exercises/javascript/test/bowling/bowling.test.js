@@ -13,10 +13,16 @@ describe("Bowling tests", () => {
     const rolls2 = [1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1];
     expect(bowl(rolls2)).toBe(22);
 
+    const rolls3 = [0, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls3)).toBe(11);
   });
 
-  it.skip("should calculate the score with a single spare", () => {
-    const rolls = [5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    expect(bowl(rolls)).toBe(12);
+  it("should calculate the score for a game containing a spare", () => {
+    const rolls1 = [5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls1)).toBe(12);
+
+    const rolls2 = [5, 5, 1, 9, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls2)).toBe(23);
+
   })
 });
