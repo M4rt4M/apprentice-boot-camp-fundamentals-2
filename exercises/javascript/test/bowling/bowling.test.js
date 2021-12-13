@@ -23,6 +23,12 @@ describe("Bowling tests", () => {
 
     const rolls2 = [5, 5, 1, 9, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     expect(bowl(rolls2)).toBe(23);
-
   })
+
+  it("should calculate score of for a game with a strike", () => {
+    const rolls = [10, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls)).toBe(14);
+  });
+
+
 });
