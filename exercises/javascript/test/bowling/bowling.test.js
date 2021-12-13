@@ -14,4 +14,9 @@ describe("Bowling tests", () => {
     expect(bowl(rolls2)).toBe(22);
 
   });
+
+  it.skip("should calculate the score with a single spare", () => {
+    const rolls = [5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls)).toBe(12);
+  })
 });
