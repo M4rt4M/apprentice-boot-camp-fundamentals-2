@@ -26,9 +26,16 @@ describe("Bowling tests", () => {
   })
 
   it("should calculate score of for a game with a strike", () => {
-    const rolls = [10, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    expect(bowl(rolls)).toBe(14);
-  });
+    const rolls1 = [10, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls1)).toBe(14);
 
+    const rolls2 = [10, 1, 1, 0, 0, 0, 0, 10, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls2)).toBe(28);
+  })
+
+  it("should calculate score of for a game with consecutive strikes", () => {
+    const rolls1 = [10, 1, 1, 0, 0, 0, 0, 10, 10, 1, 1, 0, 0, 0, 0, 0, 0];
+    expect(bowl(rolls1)).toBe(49);
+  })
 
 });

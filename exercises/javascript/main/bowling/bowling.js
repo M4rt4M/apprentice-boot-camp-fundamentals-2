@@ -23,9 +23,17 @@ export const bowl = (rolls) => {
   
       if (isStrike) {
         scoreForFrame = currentFrame[0];
-  
         const nextFrame = frames[i + 1];
-        scoreForFrame += nextFrame[0] + nextFrame[1];
+        const consecutiveFrame = frames[i +2];
+
+        if (nextFrame.length === 1) {
+            scoreForFrame += nextFrame[0] + consecutiveFrame[0];
+        } else {
+            scoreForFrame += nextFrame[0] + nextFrame[1];
+        }
+
+        //scoreForFrame += nextFrame[0] + nextFrame[1];
+
       } else {
         scoreForFrame = currentFrame[0] + currentFrame[1];
         const isSpare = scoreForFrame === 10;
