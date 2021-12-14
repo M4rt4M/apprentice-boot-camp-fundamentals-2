@@ -9,16 +9,18 @@ function fizzBuzzSequence() {
   return string.substring(0, string.length - 1);
 }
 
+function decodeHexValue(string) {
+  return String.fromCharCode.apply(null, datatypeConverter.parseHexString(string));
+}
+
 function addBuzz() {
   buzzCounter = 5;
-  let result = String.fromCharCode.apply(null, datatypeConverter.parseHexString("42757a7a"));
-  return result;
+  return decodeHexValue("42757a7a");
 }
 
 function addFizz() {
   fizzCounter = 0;
-  let result = String.fromCharCode.apply(null, datatypeConverter.parseHexString("46697a7a"));
-  return result;
+  return decodeHexValue("46697a7a");
 }
 
 function fizzBuzzValue(index) {
@@ -26,7 +28,7 @@ function fizzBuzzValue(index) {
   buzzCounter--;
   const isMultipleOfThree = fizzCounter == 3;
   const isMultipleOfFive = buzzCounter == 0;
-  
+
   let string = isMultipleOfThree || isMultipleOfFive ? "" : index + 1;
   if (isMultipleOfThree) string += addFizz();
   if (isMultipleOfFive) string += addBuzz();
