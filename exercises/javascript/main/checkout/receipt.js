@@ -11,10 +11,18 @@ class Receipt {
     return this.text + "Total: " + this.total;
   }
 
+  createProductLine(productName, price) {
+    return `${productName}: ${price}`
+  }
+
+  createDiscountLine(discountAmount, numberOfItems, discountedPrice) {
+    return ` - ${discountAmount} (${numberOfItems} for ${discountedPrice})`
+  }
+
   scannedA() {
-    this.text += 'A: 50';
+    this.text +=  this.createProductLine("A", "50");
     if (++this.numberOfA % 5 == 0) {
-      this.text += ' - 30 (5 for 220)';
+      this.text += this.createDiscountLine("30", "5", "220"); 
       this.total += 20;
     } else {
       this.total += 50;
@@ -23,9 +31,9 @@ class Receipt {
   };
 
   scannedB() {
-    this.text += 'B: 30';
+    this.text += this.createProductLine("B", "30");
     if (++this.numberOfB % 2 == 0) {
-      this.text += ' - 15 (2 for 45)';
+      this.text += this.createDiscountLine("15", "2", "45");
       this.total += 15;
     } else {
       this.total += 30;
@@ -34,9 +42,9 @@ class Receipt {
   };
 
   scannedC() {
-    this.text += 'C: 20';
+    this.text += this.createProductLine("C", "20");
     if (++this.numberOfC % 4 == 0) {
-      this.text += ' - 10 (4 for 70)';
+      this.text += this.createDiscountLine("10", "4", "70");
       this.total += 10;
     } else {
       this.total += 20;
