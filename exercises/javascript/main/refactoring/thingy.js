@@ -1,7 +1,7 @@
 const datatypeConverter = require('../util-datatype-converter');
 
 let index = 0, fizzCounter = 0;
-let buzzCounter = [0, 0, 0, 0, 0].length;
+let buzzCounter = 5;
 
 function fizzBuzzSequence() {
   let string = "";
@@ -10,7 +10,7 @@ function fizzBuzzSequence() {
 }
 
 function addBuzz() {
-  buzzCounter = [0, 0, 0, 0, 0].length;
+  buzzCounter = 5;
   let result = String.fromCharCode.apply(null, datatypeConverter.parseHexString("42757a7a"));
   return result;
 }
@@ -24,9 +24,11 @@ function addFizz() {
 function fizzBuzzValue(number) {
   fizzCounter++;
   buzzCounter--;
-  let string = fizzCounter == 3 || buzzCounter == 0 ? "" : number + 1;
-  if (fizzCounter == 3) string += addFizz();
-  if (buzzCounter == 0) string += addBuzz();
+  const shouldAddFizz = fizzCounter == 3;
+  const shouldAddBuzz = buzzCounter == 0;
+  let string = shouldAddFizz || buzzCounter == 0 ? "" : number + 1;
+  if (shouldAddFizz) string += addFizz();
+  if (shouldAddBuzz) string += addBuzz();
   return string;
 }
 
