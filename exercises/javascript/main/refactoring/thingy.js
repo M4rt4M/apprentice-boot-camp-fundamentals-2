@@ -21,14 +21,15 @@ function addFizz() {
   return result;
 }
 
-function fizzBuzzValue(number) {
+function fizzBuzzValue(index) {
   fizzCounter++;
   buzzCounter--;
-  const shouldAddFizz = fizzCounter == 3;
-  const shouldAddBuzz = buzzCounter == 0;
-  let string = shouldAddFizz || buzzCounter == 0 ? "" : number + 1;
-  if (shouldAddFizz) string += addFizz();
-  if (shouldAddBuzz) string += addBuzz();
+  const isMultipleOfThree = fizzCounter == 3;
+  const isMultipleOfFive = buzzCounter == 0;
+  
+  let string = isMultipleOfThree || isMultipleOfFive ? "" : index + 1;
+  if (isMultipleOfThree) string += addFizz();
+  if (isMultipleOfFive) string += addBuzz();
   return string;
 }
 
